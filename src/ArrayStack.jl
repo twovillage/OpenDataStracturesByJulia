@@ -46,7 +46,7 @@ function add!(a::ArrayQueue, x)
     a.baseArray.n += 1
 end
 
-# add for Dequeue 
+# add for Deque 
 function add!(a::ArrayQueue, i::Int, x)
     if count(a) >= _length(a)
         _resize!(a)
@@ -94,7 +94,7 @@ function remove!(a::ArrayQueue)
     return x
 end
 
-# remove for Dequeue
+# remove for Deque
 function remove!(a::ArrayQueue, i::Int)
     x = get(a, i)
     if i -1 < div(count(a), 2)

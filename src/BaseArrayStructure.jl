@@ -27,7 +27,7 @@ function BaseArray{T}(array::Vector{T}, len::Int, n::Int) where T
     return BaseArray(array, n)
 end
 
-# Queue and Dequeue
+# Queue and Deque
 mutable struct ArrayQueue{T}
     baseArray::BaseArray{T}
     j::Int
