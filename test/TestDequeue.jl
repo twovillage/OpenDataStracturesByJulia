@@ -10,5 +10,5 @@ testArray(a, 1, 8, ['a', 'b', 'd', 'e', 'x', 'f', 'g', 'h'])
 testArray(a, 0, 9, ['a', 'b', 'd', 'y', 'e', 'x', 'f', 'g', 'h'])
 
 @debuglog add!(a, 4, 'z') a
-testArray(a, 11, 10, ['a', 'b', 'd', 'y', 'z', 'e', 'x', 'f', 'g', 'h'])
+testArray(a, 11, 10, ['a', 'b', 'd', 'z', 'y', 'e', 'x', 'f', 'g', 'h'])
 
