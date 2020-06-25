@@ -28,7 +28,7 @@ end
 # add! functions
 export add!
 function add!(a::BaseArray, i::Int, x)
-    if count(a) + 1 >= _length(a) 
+    if count(a) >= _length(a) 
         _resize!(a)
     end
     for j = count(a):-1:i
@@ -48,21 +48,22 @@ end
 
 # add for Dequeue 
 function add!(a::ArrayQueue, i::Int, x)
-    if count(a) + 1 >= _length(a)
+    if count(a) >= _length(a)
         _resize!(a)
     end
 
-    if i < div(count(a), 2)
+    if i - 1 < div(count(a), 2)
         a.j = (a.j == 0) ? _length(a) - 1 : a.j - 1
-        for k = 0:i-2
-            set!(a.baseArray, (a.j + k) % _length(a) + 1, get(a.baseArray, (a.j + k + 1) % _length(a) + 1))
+
+        for k = 1:i - 1
+            set!(a, k, get(a, k + 1))
         end
     else
-        for k = count(a):-1:i + 1
-            set!(a.baseArray, (a.j + k) % _length(a) + 1, get(a.baseArray, (a.j + k - 1) % _length(a) + 1))
+        for k = count(a) + 1:-1:i + 1
+            set!(a, k, get(a, k - 1))
         end 
     end
-    set!(a.baseArray, (a.j + i) % _length(a) + 1, x)
+    set!(a, i, x)
     a.baseArray.n += 1
 end
 
@@ -96,14 +97,14 @@ end
 # remove for Dequeue
 function remove!(a::ArrayQueue, i::Int)
     x = get(a, i)
-    if (i < div(count(a), 2))
-        for k = i:-1:0
-            set!(a.baseArray, (a.j + k + 1) % _length(a) + 1, get(a.baseArray, (a.j + k) % _length(a) + 1))
+    if i -1 < div(count(a), 2)
+        for k = i:-1:2
+            set!(a, k, get(a, k - 1))
         end
         a.j = (a.j + 1) % _length(a)
     else
         for k = i:count(a)
-            set!(a.baseArray, (a.j + k + 1) % _length(a) + 1, get(a.baseArray, (a.j + k + 2) % _length(a) + 1))
+            set!(a, k, get(a, k + 1))
         end  
     end
     a.baseArray.n -= 1
