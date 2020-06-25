@@ -22,6 +22,11 @@ function BaseArray{T}(array::Vector{T}) where T
     return BaseArray(array, n)
 end
 
+function BaseArray{T}(array::Vector{T}, len::Int, n::Int) where T
+    resize!(array, len)
+    return BaseArray(array, n)
+end
+
 # Queue and Dequeue
 mutable struct ArrayQueue{T}
     baseArray::BaseArray{T}
@@ -79,7 +84,8 @@ end
 # toArray function
 export toArray
 function toArray(a::BaseArray)
-    return resize!(a.array, a.n)
+    b = deepcopy(a.array)
+    return resize!(b, a.n)
 end
 
 function toArray(a::ArrayQueue{T}) where T
