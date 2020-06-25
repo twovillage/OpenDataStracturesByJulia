@@ -1,4 +1,5 @@
-a = BaseArray{Char}(['b', 'r', 'e', 'd'])
+array = ['b', 'r', 'e', 'd']
+@show a = BaseArray{Char}(array, 6, length(array))
 
 @debuglog add!(a, 3, 'e') a
 testArray(a, ['b', 'r', 'e', 'e', 'd'])

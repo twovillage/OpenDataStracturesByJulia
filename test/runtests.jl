@@ -18,7 +18,13 @@ function testArray(a, b)
     @test toArray(a) == b
 end
 
+println("======start TestArray======")
 include("TestArray.jl")
+println("======end TestArray======")
+println("======start TestQueue======")
 include("TestQueue.jl")
+println("======end TestQueue======")
+println("======start TestDequeue======")
 include("TestDequeue.jl")
+println("======end TestDequeue======")
 
