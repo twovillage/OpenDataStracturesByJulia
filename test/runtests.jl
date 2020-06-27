@@ -1,7 +1,10 @@
 using Test
-include("../src/ArrayStack.jl")
-include("../src/Utils.jl")
-using .ArrayStack
+using IncludeGuards
+
+@includeonce "../src/ArrayStack.jl"
+@includeonce "../src/ArrayQueue.jl"
+@includeonce "../src/Deque.jl"
+@includeonce "../src/Utils.jl"
 
 function testArray(a, j, n, b)
     @test toArray(a) == b

@@ -1,4 +1,4 @@
-@show a = ArrayQueue{Char}(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', '\0', '\0', '\0', '\0'], 0, 8)
+@show a = QueueArray{Char}(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', '\0', '\0', '\0', '\0'], 0, 8)
 
 @debuglog remove!(a, 3) a
 testArray(a, 1, 7, ['a', 'b', 'd', 'e', 'f', 'g', 'h'])
