@@ -30,4 +30,8 @@ println("======end TestQueue======")
 println("======start TestDeque======")
 include("TestDeque.jl")
 println("======end TestDeque======")
+println("======start TestDualArrayDeque======")
+include("TestDualArrayDeque.jl")
+println("======end TestDualArrayDeque======")
+
 

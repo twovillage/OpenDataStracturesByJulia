@@ -1,10 +1,13 @@
+using IncludeGuards
+
+@includeonce "ArrayStack.jl"
+
 # DualArrayDeque
 mutable struct DualArrayDeque{T}
     front::BaseArray{T}
     back::BaseArray{T}
 end
 
-export DualArrayDeque
 # constructors
 function DualArrayDeque{T}(n::Int) where T
     if n <= 1
@@ -22,13 +25,14 @@ function DualArrayDeque{T}(array::Vector{T}) where T
     len = length(array)
     harf_len = div(len, 2)
     len_front = len - harf_len
-    front = BaseArray(len_front)
-    back = BaseArray(harf_len)
-
+    front = BaseArray{T}(len_front)
+    back = BaseArray{T}(harf_len)
     # insert front array
-    for  i = 1:len_front
-        set!(front, i, array[len_front + 1 -i])
+    for i = 1:len_front
+        set!(front, i, array[len_front + 1 - i])
+
     end
+
 
     # insert back array
     if harf_len > 0
@@ -39,3 +43,8 @@ function DualArrayDeque{T}(array::Vector{T}) where T
 
     return DualArrayDeque(front, back)
 end
+
+function Base.count(a::DualArrayDeque)
+    a.front.n + a.back.n
+end
+  

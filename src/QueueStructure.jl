@@ -8,7 +8,6 @@ mutable struct QueueArray{T}
     j::Int
 end
 
-export QueueArray
 # constructors
 function QueueArray{T}(size::Int) where T 
     return QueueArray(BaseArray{T}(size), 0)

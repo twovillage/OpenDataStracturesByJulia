@@ -8,7 +8,6 @@ mutable struct BaseArray{T}
     n::Int
 end
 
-export BaseArray
 # constructors
 function BaseArray{T}(n::Int) where T
     a = Vector{T}(undef, max(2n, 1))
@@ -40,13 +39,11 @@ end
 
 
 # count functions
-export count
 function Base.count(a::BaseArray)
     return a.n
 end
 
 # toArray function
-export toArray
 function toArray(a::BaseArray)
     b = deepcopy(a.array)
     return resize!(b, a.n)
