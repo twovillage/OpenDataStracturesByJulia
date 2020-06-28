@@ -5,7 +5,7 @@ macro debuglog(func, a)
     quote
         println("======  start ", $(string(func)), "  ======")
         $(esc(func))
-        println(a)
+        println($(esc(a)))
         println("======  end ", $(string(func)), "  ======")
     end
 end
