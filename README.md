@@ -13,7 +13,7 @@ So those are not helpful as Julia's package or library.
 - [x] ArrayStack
 - [x] ArrayQueue
 - [x] ArrayDeque
-- [ ] DualArrayDeque
+- [x] DualArrayDeque
 - [ ] RootishArrayStack
 - [ ] Discussion and Practice
 

@@ -47,4 +47,12 @@ end
 function Base.count(a::DualArrayDeque)
     a.front.n + a.back.n
 end
+
+# toArray function
+function toArray(a::DualArrayDeque)
+    front = reverse(toArray(a.front))
+    back = toArray(a.back)
+    return [front; back]
+
+end
   
