@@ -10,23 +10,23 @@ So those are not helpful as Julia's package or library.
 
 ### Section2
 
--[x] ArrayStack
--[x] ArrayQueue
--[x] ArrayDeque
--[ ] DualArrayDeque
--[ ] RootishArrayStack
--[ ] Discussion and Practice
+- [x] ArrayStack
+- [x] ArrayQueue
+- [x] ArrayDeque
+- [ ] DualArrayDeque
+- [ ] RootishArrayStack
+- [ ] Discussion and Practice
 
 ### Section3
 
--[ ] SLList
--[ ] DLList
--[ ] SEList
--[ ] Discussion and Practice
+- [ ] SLList
+- [ ] DLList
+- [ ] SEList
+- [ ] Discussion and Practice
 
 ### Section4
 
--[ ] SkiplistSSet
--[ ] SkiplistList
--[ ] Discussion and Practice
+- [ ] SkiplistSSet
+- [ ] SkiplistList
+- [ ] Discussion and Practice
 
