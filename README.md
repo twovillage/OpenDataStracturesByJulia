@@ -14,7 +14,7 @@ So those are not helpful as Julia's package or library.
 - [x] ArrayQueue
 - [x] ArrayDeque
 - [x] DualArrayDeque
-- [ ] RootishArrayStack
+- [ ] RootishArrayStack  add get and set!
 - [ ] Discussion and Practice
 
 ### Section3

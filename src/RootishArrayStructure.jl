@@ -10,7 +10,7 @@ function _i2b(n)
 end
 
 function _sum(b)
-    div(b * (b + 1) , 2)
+    Int(div(b * (b + 1) , 2))
 end
 
 # constructor
