@@ -1,5 +1,8 @@
+using IncludeGuards
+
+@includeonce "ArrayStack.jl"
 mutable struct RootishArray{T}
-    blocks::Vector{Vector{T}}
+    blocks::BaseArray{Vector{T}}
     n::Int
 end
 
@@ -17,7 +20,7 @@ end
 function RootishArray{T}(array::Vector{T}) where T
     n = length(array)
     r = _i2b(n)
-    blocks = Vector{Vector{T}}(undef, r)
+    blocks = BaseArray{Vector{T}}(r)
     for i=1:r
         endIndex = _sum(i)
         if endIndex > n
@@ -26,7 +29,7 @@ function RootishArray{T}(array::Vector{T}) where T
         else
             block = array[_sum(i - 1) + 1:endIndex]
         end
-        blocks[i] = block
+        set!(blocks, i, block)
     end
 
     return RootishArray{T}(blocks, n)
