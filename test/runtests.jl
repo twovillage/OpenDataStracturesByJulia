@@ -5,6 +5,7 @@ using IncludeGuards
 @includeonce "../src/ArrayQueue.jl"
 @includeonce "../src/Deque.jl"
 @includeonce "../src/Utils.jl"
+@includeonce "../src/RootishArrayStack.jl"
 
 function testArray(a, j, n, b)
     @test toArray(a) == b
@@ -33,5 +34,8 @@ println("======end TestDeque======")
 println("======start TestDualArrayDeque======")
 include("TestDualArrayDeque.jl")
 println("======end TestDualArrayDeque======")
+println("======start TestRootishArray======")
+include("TestRootishArray.jl")
+println("======end TestRootishArray======")
 
 
