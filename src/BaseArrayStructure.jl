@@ -25,6 +25,12 @@ function BaseArray{T}(array::Vector{T}, len::Int, n::Int) where T
     return BaseArray(array, n)
 end
 
+# iterator
+function Base.iterate(a::BaseArray, i::Int = 1)
+    i == a.n + 1 && return nothing
+    return (a.array[i], i + 1)
+end
+
 # inner function _length
 function _length(a::BaseArray)
     length(a.array)
@@ -36,9 +42,7 @@ function _resize!(a::BaseArray)
     a.array = b
 end
 
-
-
-# count functions
+# count function
 function Base.count(a::BaseArray)
     return a.n
 end

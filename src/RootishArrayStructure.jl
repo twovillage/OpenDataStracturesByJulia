@@ -39,3 +39,13 @@ end
 function Base.count(a::RootishArray)
     return a.n
 end
+
+# toArray function
+function toArray(a::RootishArray)
+    b = []
+    for block in a.blocks
+        b = vcat(b, block)
+    end
+    resize!(b, a.n)
+    return b
+end
