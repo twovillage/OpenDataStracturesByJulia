@@ -1,3 +1,4 @@
+using Base
 using IncludeGuards
 
 @includeonce "ArrayStack.jl"
@@ -13,7 +14,7 @@ function _i2b(n)
 end
 
 function _sum(b)
-    Int(div(b * (b + 1) , 2))
+    div(b * (b + 1) , 2)
 end
 
 # constructor
@@ -33,5 +34,8 @@ function RootishArray{T}(array::Vector{T}) where T
     end
 
     return RootishArray{T}(blocks, n)
+end
 
+function Base.count(a::RootishArray)
+    return a.n
 end
